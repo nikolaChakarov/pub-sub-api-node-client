@@ -4,12 +4,22 @@ async function run() {
         const client = new PubSubApiClient();
         await client.connect();
         
+        // const payload = {
+        //     CreatedDate: new Date().getTime(), // Non-null value required but there's no validity check performed on this field
+        //     CreatedById: '0050600000FlTqqAAF', // Valid user ID
+        //     name__c: { string: 'Test 77' } // Field is nullable so we need to specify the 'string' type
+        // };
+        // const publishResult = await client.publish('/event/test_integration_ka__e', payload);
+        // console.log('Published event: ', JSON.stringify(publishResult));
+        
+        
+        // AIOPS
         const payload = {
             CreatedDate: new Date().getTime(), // Non-null value required but there's no validity check performed on this field
-            CreatedById: '0050600000FlTqqAAF', // Valid user ID
+            CreatedById: '005Ea000006A2zZIAS', // Valid user ID
             name__c: { string: 'Test 77' } // Field is nullable so we need to specify the 'string' type
         };
-        const publishResult = await client.publish('/event/test_integration_ka__e', payload);
+        const publishResult = await client.publish('/event/ADT_Google_Cloud__e', payload);
         console.log('Published event: ', JSON.stringify(publishResult));
     
 }
